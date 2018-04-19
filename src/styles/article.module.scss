@@ -13,8 +13,7 @@
 .header {
   width: 100%;
 }
-.byline,
-.points {
+.byline{
   width: 100%;
 }
 .sectionOne,
@@ -49,8 +48,7 @@
   .article {
     max-width: 1260px;
   }
-  .byline,
-  .points {
+  .byline {
     width: $col-3-units;
   }
   .sectionOne {
@@ -76,8 +74,7 @@
       grid-template-columns: 1fr $col-4-units;
     }
     .header,
-    .byline,
-    .points {
+    .byline {
       grid-column: span 2;
     }
 
@@ -91,8 +88,7 @@
     .article {
       grid-template-columns: minmax($col-2-units,$col-3-units) 1fr $col-4-units;
     }
-    .byline,
-    .points {
+    .byline {
       grid-column: 1 / span 1;
     }
     .sectionOne,
