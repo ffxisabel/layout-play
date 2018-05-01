@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styles from '../styles/article.module.scss'
 
-const SecondPage = () => (
+const Article = () => (
   <article className={styles.article}>
     <header className={styles.header}>
       <h1>Fun with article layouts</h1>
@@ -29,4 +29,4 @@ const SecondPage = () => (
 </article>
 )
 
-export default SecondPage
+export default Article
