@@ -1,5 +1,15 @@
-$grid-unit: 60px;
-$gutter-unit: 20px;
+$max-desktop-width:                 1260px;
+
+$grid-unit:                         60px;
+$gutter-unit:                       20px; // space between columns in a layout
+$tubby-unit:                        16px; // space between elements in a component
+
+// Breakpoints
+
+$bp-small:                         700px;
+$bp-medium:                        940px;
+$bp-large:                         1080px;
+$bp-xlarge:                        $max-desktop-width;
 
 $col-2-units:                       $grid-unit*2 + $gutter-unit; // 140px
 $col-3-units:                       $grid-unit*3 + $gutter-unit*2; // 220px
@@ -9,4 +19,51 @@ $col-6-units:                       $grid-unit*6 + $gutter-unit*5; // 460px
 $col-8-units:                       $grid-unit*8 + $gutter-unit*7; // 620px
 $col-9-units:                       $grid-unit*9 + $gutter-unit*8; // 700px
 
+//------------------------------------------------//
+//    STRIP UNIT
+//-----------------------------------------------//
+//
+// PARAMETERS:
+// 1. $NUM: number to be stripped of its unit.
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+//------------------------------------------------//
+//    FLEXIBLE CONTAINER
+//-----------------------------------------------//
+//
+
+@mixin flex-container() {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+//------------------------------------------------//
+//    FLEXIBLE COLUMNS
+//-----------------------------------------------//
+//
+// PARAMETERS:
+// 1. $margin [OPTIONAL; DEFAULTS TO LEFT] - which side of the column should have a margin
+// 2. $spacing: width of grid gutter (because we use calc() it should just work with any unit)
+
+@mixin flex-col($margin: left, $spacing: $gutter-unit) {
+  flex-grow: 1;
+  margin-#{$margin}: $spacing;
+
+}
+
+//------------------------------------------------//
+//    PERCENTAGE WIDTH COLUMNS WITH GUTTERS
+//-----------------------------------------------//
+//
+// PARAMETERS:
+// 1. $divisor: fraction of width, e.g. for half width use 2.
+// 2. $spacing: width of grid gutter (because we use calc() it should just work with any unit)
+
+@function percent-width($divisor,$spacing: $gutter-unit) {
+  @return calc((100% / #{$divisor}) - ((#{$spacing} * (#{$divisor} - 1)) / #{$divisor}));
+}
 

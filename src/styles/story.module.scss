@@ -1,5 +1,27 @@
+@import 'grid.module';
+
 .image {
-    width: 300px;
+    width: 100%;
     height: 200px;
     background-color: hotpink;
+}
+
+@media (min-width: $bp-small) {
+    .storyStacked {
+        width: percent-width(2);
+    }
+}
+@media (min-width: $bp-medium) {
+    .storyStacked {
+        width: $col-3-units;
+        &:first-of-type {
+            margin-right: $gutter-unit;
+        }
+    }
+}
+
+@media (min-width: $bp-xlarge) {
+    .storyStacked {
+        width: $col-4-units;
+    }
 }

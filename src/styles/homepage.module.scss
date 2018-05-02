@@ -1,5 +1,12 @@
+@import 'grid.module';
+
 .strap {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 300px);
-    grid-gap: 20px;
+    @include flex-container();
+}
+
+@media (min-width: $bp-medium) {
+    .listContainer {
+        @include flex-col();
+        width: $col-4-units;
+    }
 }
